@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const str = process.stdin.pipe(require('split')()),
 	argv = require('minimist')(process.argv.slice(2));
 

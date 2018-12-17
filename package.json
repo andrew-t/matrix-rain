@@ -1,15 +1,14 @@
 {
-  "name": "matrix-rain",
-  "version": "1.0.0",
-  "description": "",
+  "name": "matrix-rain-stream",
+  "version": "1.0.1",
+  "description": "Visualise long-running terminal processes as Matrix-style code rain",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
     "minimist": "^1.2.0",
     "split": "^1.0.1"
-  }
+  },
+  "bin": { "rain": "index.js" }
 }
