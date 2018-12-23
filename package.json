@@ -1,6 +1,6 @@
 {
   "name": "matrix-rain-stream",
-  "version": "1.0.1",
+  "version": "1.2.1",
   "description": "Visualise long-running terminal processes as Matrix-style code rain",
   "main": "index.js",
   "scripts": {},

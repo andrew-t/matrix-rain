@@ -16,18 +16,20 @@ str.on('data', line => {
 		rain.push(drop);
 });
 
+const cols = [ '97', '38;5;46', '38;5;40', '38;5;34', '38;5;28', '38;5;22' ];
+
 setInterval(() => {
 	const array = Array(process.stdout.rows).fill(1).map(
 		x => Array(process.stdout.columns).fill(' '));
 	for (const drop of rain) {
-		for (let col = 46, n = 2, i = 0; i < drop.text.length; ++i) {
+		for (let col = 0, n = 2, i = 0; i < drop.text.length; ++i) {
 			const row = array[drop.y - i],
 				char = drop.text[drop.y - i];
 			if (row && row[drop.x] && char)
-				row[drop.x] = `\x1b[${drop.y - i};${drop.x}H\x1b[38;5;${col}m${char}`;
+				row[drop.x] = `\x1b[${drop.y - i};${drop.x}H\x1b[${cols[col]}m${char}`;
 			if (++n >= 3) {
 				n = 0;
-				if ((col -= 6) < 22)
+				if (++col >= cols.length)
 					break;
 			}
 		}
