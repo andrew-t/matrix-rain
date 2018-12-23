@@ -22,3 +22,16 @@ As an example, you can use the `log-shit.js` file included to log random numbers
 ```sh
 node log-shit.js | node index.js
 ```
+
+You can also get `stderr` to rain in blood-red code by passing your desired process as an argument after `--` rather than piping it:
+
+```sh
+rain -- adb logcat
+rain -- node log-shit.js
+```
+
+Command line args so far:
+
+## `-trim N`
+
+Removes N characters from the start of log lines. Useful for processes which prefix log lines with IDs or timestamps.
