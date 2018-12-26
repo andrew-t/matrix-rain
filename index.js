@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
-const cols = [ '97', /*'38;5;10',*/ '38;5;46', '38;5;40', '38;5;34', '38;5;28', '38;5;22' ],
-	errCols = [ '97', /*'38;5;9',*/ '38;5;196', '38;5;160', '38;5;124', '38;5;88', '38;5;52' ];
+const cols = [ '97', /*'38;5;10',*/
+		'38;5;46', '38;5;40', '38;5;34', '38;5;28', '38;5;22' ],
+	errCols = [ '97', /*'38;5;9',*/
+		'38;5;196', '38;5;160', '38;5;124', '38;5;88', '38;5;52' ];
 
 const split = require('split'),
 	{ spawn } = require('child_process'),
@@ -14,6 +16,7 @@ if (argv._ && argv._.length > 0) {
 		p = spawn(cmd, argv._);
 	streamRain(p.stdout, cols);
 	streamRain(p.stderr, errCols);
+	process.on('SIGINT', () => p.kill('SIGINT'));
 } else
 	streamRain(process.stdin, cols);
 
